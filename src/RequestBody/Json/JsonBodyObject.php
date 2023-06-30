@@ -249,6 +249,22 @@ class JsonBodyObject extends BaseRequestBody implements Arrayable
         return $this;
     }
 
+    public function getTs(): ?string
+    {
+        return $this->ts ?? null;
+    }
+
+    public function getThreadTs(): ?string
+    {
+        return $this->threadTs ?? null;
+    }
+
+    public function getDialog(): Dialog
+    {
+        return $this->dialog;
+    }
+
+
     /**
      * @return array
      */
