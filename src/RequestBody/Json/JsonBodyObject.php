@@ -58,6 +58,8 @@ class JsonBodyObject extends BaseRequestBody implements Arrayable
      */
     private $attachments;
 
+    private $blocks;
+
     /**
      * @var \Pdffiller\LaravelSlack\RequestBody\Json\Dialog
      */
@@ -69,6 +71,7 @@ class JsonBodyObject extends BaseRequestBody implements Arrayable
     public function __construct()
     {
         $this->attachments = new Collection();
+        $this->blocks = new Collection();
     }
 
     /**
@@ -227,6 +230,25 @@ class JsonBodyObject extends BaseRequestBody implements Arrayable
         return $this;
     }
 
+    public function addBlock(array $block)
+    {
+        $this->blocks->push($block);
+
+        return $this;
+    }
+
+    public function getBlocks()
+    {
+        return $this->blocks;
+    }
+
+    public function setBlocks(Collection $blocks)
+    {
+        $this->blocks = $blocks;
+
+        return $this;
+    }
+
     /**
      * @return array
      */
@@ -243,6 +265,7 @@ class JsonBodyObject extends BaseRequestBody implements Arrayable
             'text'             => $this->text,
             'dialog'           => $this->dialog ? $this->dialog->toArray() : null,
             'attachments'      => $this->attachments->toArray(),
+            'blocks'           => $this->blocks->toArray(),
         ];
     }
 }
