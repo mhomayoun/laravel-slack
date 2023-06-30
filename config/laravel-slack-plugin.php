@@ -12,6 +12,13 @@ return [
     'verification_token' => env('SLACK_VERIFICATION_TOKEN', null),
 
     /*
+     * Route middleware for Slack handlers
+     */
+    'middleware' => [
+        \Pdffiller\LaravelSlack\VerifySlackToken::class,
+    ],
+    
+    /*
      * Handlers are processed by controller
      */
     'handlers' => [
