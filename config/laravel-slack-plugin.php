@@ -2,9 +2,14 @@
 
 return [
     /*
-     * Bot User OAuth Access from Slack App
+     * Bot OAuth Access from Slack App
      */
     'bot-token' => env('SLACK_BOT_TOKEN', null),
+
+    /*
+     * Bot User OAuth Access from Slack App
+     */
+    'bot-user-token' => env('SLACK_BOT_USER_TOKEN', null),
 
     /*
      * Verification token from Slack App
