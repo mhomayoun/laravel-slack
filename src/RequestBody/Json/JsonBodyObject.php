@@ -66,6 +66,11 @@ class JsonBodyObject extends BaseRequestBody implements Arrayable
     private $dialog;
 
     /**
+     * @var array
+     */
+    private $view;
+
+    /**
      * JsonBody constructor.
      */
     public function __construct()
@@ -264,6 +269,12 @@ class JsonBodyObject extends BaseRequestBody implements Arrayable
         return $this->dialog;
     }
 
+    public function setRawView(array $view)
+    {
+        $this->view = $view;
+
+        return $this;
+    }
 
     /**
      * @return array
@@ -282,6 +293,7 @@ class JsonBodyObject extends BaseRequestBody implements Arrayable
             'dialog'           => $this->dialog ? $this->dialog->toArray() : null,
             'attachments'      => $this->attachments->toArray(),
             'blocks'           => $this->blocks->toArray(),
+            'view'             => $this->view ?? null,
         ];
     }
 }
