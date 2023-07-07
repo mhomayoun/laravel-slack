@@ -91,6 +91,11 @@ class JsonBodyObject extends BaseRequestBody implements Arrayable
         return $this;
     }
 
+    public function getChannel(): ?string
+    {
+        return $this->channel ?? null;
+    }
+
     /**
      * @param string $triggerId
      *
