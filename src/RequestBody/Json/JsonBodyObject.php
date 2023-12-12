@@ -3,6 +3,7 @@
 namespace Pdffiller\LaravelSlack\RequestBody\Json;
 
 use Illuminate\Contracts\Support\Arrayable;
+use Illuminate\Notifications\Slack\EventMetadata;
 use Illuminate\Support\Collection;
 use Pdffiller\LaravelSlack\RequestBody\BaseRequestBody;
 
@@ -59,6 +60,8 @@ class JsonBodyObject extends BaseRequestBody implements Arrayable
     private $attachments;
 
     private $blocks;
+
+    protected ?EventMetadata $metaData = null;
 
     /**
      * @var \Pdffiller\LaravelSlack\RequestBody\Json\Dialog
@@ -274,6 +277,13 @@ class JsonBodyObject extends BaseRequestBody implements Arrayable
         return $this->dialog;
     }
 
+    public function metadata(EventMetadata $metadata): self
+    {
+        $this->metaData = $metadata;
+
+        return $this;
+    }
+
     public function setRawView(array $view)
     {
         $this->view = $view;
@@ -298,6 +308,7 @@ class JsonBodyObject extends BaseRequestBody implements Arrayable
             'dialog'           => $this->dialog ? $this->dialog->toArray() : null,
             'attachments'      => $this->attachments->toArray(),
             'blocks'           => $this->blocks->toArray(),
+            'metadata'         => $this->metaData?->toArray(),
             'view'             => $this->view ?? null,
         ];
     }
