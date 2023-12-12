@@ -17,61 +17,61 @@ class JsonBodyObject extends BaseRequestBody implements Arrayable
     /**
      * @var string
      */
-    private $channel;
+    public $channel;
 
     /**
      * @var string
      */
-    private $triggerId;
+    public $triggerId;
 
     /**
      * @var string
      */
-    private $username;
+    public $username;
 
     /**
      * @var string
      */
-    private $iconUrl;
+    public $iconUrl;
 
     /**
      * @var boolean
      */
-    private $replaceOriginal;
+    public $replaceOriginal;
 
     /**
      * @var string
      */
-    private $ts;
+    public $ts;
 
     /**
      * @var string
      */
-    private $threadTs;
+    public $threadTs;
 
     /**
      * @var string
      */
-    private $text;
+    public $text;
 
     /**
      * @var \Illuminate\Support\Collection
      */
-    private $attachments;
+    public $attachments;
 
-    private $blocks;
+    public $blocks;
 
-    protected ?EventMetadata $metaData = null;
+    public ?EventMetadata $metaData = null;
 
     /**
      * @var \Pdffiller\LaravelSlack\RequestBody\Json\Dialog
      */
-    private $dialog;
+    public $dialog;
 
     /**
      * @var array
      */
-    private $view;
+    public $view;
 
     /**
      * JsonBody constructor.
